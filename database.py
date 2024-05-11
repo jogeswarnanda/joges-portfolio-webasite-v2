@@ -1,6 +1,8 @@
 # IMPORT THE SQALCHEMY LIBRARY's CREATE_ENGINE METHOD
 from sqlalchemy import create_engine, text
 import os
+
+from sqlalchemy.sql.selectable import Values
 # engine=create_engine("postgresql+psycopg2://postgres.cxntcshwyqnjqmtycmkm:postgres.cxntcshwyqnjqmtycmkm@aws-0-ap-southeast-1.pooler.supabase.com port=5432/postgres")
 # with engine.connect() as conn:
 # result = conn,execute(text("Hello !!"))
@@ -49,3 +51,15 @@ def load_jobs_from_db():
     #print ("SAALLLLA :", jobs)
     return jobs
 
+def load_job_from_db(id):
+  values = { 'code' :  id }
+  with engine.connect() as conn:
+    text1 = text("select * from jobs where jobs.id = :code")
+    result = conn.execute(text1, values)
+    rows = result.all()
+    print("rows_new::", rows)
+    if len(rows) == 0:
+      print ("return no rows")
+      return None
+    else:
+      return rows[0]
