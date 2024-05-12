@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Application Submitted </title>
+        {% include 'bootstrap.html' %}
+    </head>
+    <body>
+        {% include 'nav.html' %}
+        {% include 'banner.html' %}
+    <div class="container">
+         <h1 class="text-center mt-4 mb-4"> Joges Career </h1>
+        <p>Your Application for the role of <b>{{job['title']}}</b> at JOGES Career has been submitted.</p>
+        <h4 class = "mb-0" >Full Name</h4>
+        <div class= "mb-4" >{{data['full_name']}}</div>
+
+        <h4 class = "mb-0" >Email</h4>
+        <div class= "mb-4" > {{data['email']}}</div>
+
+        <h4 class = "mb-0" >LinkedIn URL</h4>
+        <div class= "mb-4" > {{data['linkedin_url']}}</div>
+
+        <h4 class = "mb-0" >Education</h4>
+        <div class= "mb-4" > {{data['education']}}</div>
+
+        <h4 class = "mb-0" >Work Experience</h4>
+        <div class= "mb-4" > {{data['work_experience']}}</div>
+
+        <h4 class = "mb-0" >Resume URL</h4>
+        <div class= "mb-4" > {{data['resume_url']}}</div>
+        
+    </div>
+    </body>
+</html>
